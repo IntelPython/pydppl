@@ -32,7 +32,7 @@ from .program._program cimport SyclKernel
 from libc.stdint cimport uint32_t
 
 
-cdef class SyclContext:
+cdef public class SyclContext [object PySyclContextObject, type PySyclContextType]:
     ''' Wrapper class for a Sycl Context
     '''
     cdef DPCTLSyclContextRef _ctxt_ref
@@ -86,7 +86,7 @@ cdef class SyclEvent:
     cpdef void wait (self)
 
 
-cdef class SyclQueue:
+cdef public class SyclQueue [object PySyclQueueObject, type PySyclQueueType]:
     ''' Wrapper class for a Sycl queue.
     '''
     cdef DPCTLSyclQueueRef _queue_ref
